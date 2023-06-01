@@ -6,45 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASCII Art Web GUI</title>
     <link rel="stylesheet" href="static/styles.css">
-
+</head>
 
 <body>
     <header>
         <h1>ASCII Art Web GUI</h1>
     </header>
-
     <main>
-        <!-- ASCII art display area -->
-
-
-        <!-- ASCII art input and controls -->
         <div id="ascii-art-controls">
-            <textarea id="ascii-art-input" placeholder="Enter your text here"></textarea>
-            <button id="generate-btn">Generate ASCII Art</button>
-            <button id="clear-btn">Clear</button>
-            <button id="save-btn">Save</button>
-            <div class="dropdown">
-                <button class="dropdown-btn">Select Font</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="selectFont('Standard')">Standard</a>
-                    <a href="#" onclick="selectFont('Shadow')">Shadow</a>
-                    <a href="#" onclick="selectFont('Thinkertoy')">Thinkertoy</a>
+            <form id="generate-form">
+                <textarea id="ascii-art-input" name="word" placeholder="Enter your text here"></textarea>
+                <div class="dropdown">
+                    <button class="dropdown-btn">Select Font</button>
+                    <div class="dropdown-content">
+                        <button class="font-option" type="button" data-font="standard.txt">Standard</button>
+                        <button class="font-option" type="button" data-font="shadow.txt">Shadow</button>
+                        <button class="font-option" type="button" data-font="thinkertoy.txt">Thinkertoy</button>
+                    </div>
                 </div>
-            </div>
-            <div id="ascii-art-container">
-                <!-- Display the ASCII art here -->
-            </div>
-
+                <button id="generate-btn" type="submit">Generate ASCII Art</button>
+                <button id="clear-btn" type="button">Clear</button>
+            </form>
+        </div>
+        <div id="ascii-art-container"></div>
     </main>
-
     <footer>
         <p>&copy; 2023 Your Company. All rights reserved.</p>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="script.js"></script>
-
+    <script src="static/script.js"></script>
 </body>
 
 </html>

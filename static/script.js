@@ -1,21 +1,39 @@
-function selectFont(font) {
-    var dropdownBtn = document.querySelector('.dropdown-btn');
-    dropdownBtn.textContent = font;
-    closeDropdown();
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const generateForm = document.getElementById("generate-form");
+    const asciiArtInput = document.getElementById("ascii-art-input");
+    const generateBtn = document.getElementById("generate-btn");
+    const clearBtn = document.getElementById("clear-btn");
+    const asciiArtContainer = document.getElementById("ascii-art-container");
 
-function closeDropdown() {
-    var dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.style.display = 'none';
-}
+    generateForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-document.addEventListener('click', function (e) {
-    var target = e.target;
-    var dropdownContent = document.querySelector('.dropdown-content');
+        const formData = new FormData(generateForm);
+        const word = formData.get("word");
+        const font = formData.get("font");
 
-    if (!target.closest('.dropdown')) {
-        dropdownContent.style.display = 'none';
-    } else if (target.classList.contains('dropdown-btn')) {
-        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        generateAsciiArt(word, font);
+    });
+
+    clearBtn.addEventListener("click", () => {
+        asciiArtInput.value = "";
+        asciiArtContainer.textContent = "";
+    });
+
+    function generateAsciiArt(word, font) {
+        fetch("/generate", {
+            method: "POST",
+            body: JSON.stringify({ word, font }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.text())
+            .then((result) => {
+                asciiArtContainer.textContent = result;
+            })
+            .catch((error) => {
+                console.error("Failed to generate ASCII art:", error);
+            });
     }
 });
