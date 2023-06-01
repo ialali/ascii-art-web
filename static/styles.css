@@ -1,0 +1,131 @@
+/* Global styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #d8ef07;
+    color: #000ed5;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main content styles */
+main {
+    background-color: #f2f2f2;
+    flex: 1;
+    background-image: linear-gradient(45deg, rgb(240, 24, 81), rgb(1, 42, 226));
+    background-repeat: repeat;
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+/* ASCII art display area styles */
+#ascii-art-container {
+    background-image: url("paper_texture.jpg");
+    background-repeat: repeat;
+    padding: 20px;
+}
+
+/* ASCII art input and controls styles */
+#ascii-art-input {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: 100px;
+    resize: none;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+#ascii-art-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#ascii-art-controls button {
+    margin: 10px;
+    font-size: 24px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#ascii-art-controls button {
+    margin: 10px;
+    font-size: 24px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dropdown-btn:hover {
+    background-color: #45a049;
+}
