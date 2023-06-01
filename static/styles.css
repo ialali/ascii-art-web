@@ -38,20 +38,25 @@ main {
 
 /* ASCII art display area styles */
 #ascii-art-container {
-    background-image: url("paper_texture.jpg");
-    background-repeat: repeat;
-    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 180px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-top: 80px;
+
 }
 
 /* ASCII art input and controls styles */
 #ascii-art-input {
     display: block;
     margin: 0 auto;
-    width: 40%;
-    height: 100px;
+    width: 30%;
+    height: 50px;
     resize: none;
     font-size: 18px;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 #ascii-art-controls {
@@ -68,11 +73,12 @@ main {
     color: #fff;
     cursor: pointer;
     border-radius: 8px;
+    margin-right: 10px;
 }
 
 #ascii-art-controls button {
-    margin: 10px;
-    font-size: 24px;
+    margin: 5px;
+    font-size: 12px;
 }
 
 /* Footer styles */
