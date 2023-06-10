@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art Web GUI</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <title>Ascii-art-web</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
 </head>
 
 <body>
-    <header>
-        <h1>ASCII Art Web GUI</h1>
-    </header>
-    <main>
-        <div id="ascii-art-controls">
-            <form id="generate-form">
-                <textarea id="ascii-art-input" name="word" placeholder="Enter your text here"></textarea>
-                <div class="dropdown">
-                    <button class="dropdown-btn">Select Font</button>
-                    <div class="dropdown-content">
-                        <button class="font-option" type="button" data-font="standard.txt">Standard</button>
-                        <button class="font-option" type="button" data-font="shadow.txt">Shadow</button>
-                        <button class="font-option" type="button" data-font="thinkertoy.txt">Thinkertoy</button>
-                    </div>
-                </div>
-                <button id="generate-btn" type="submit">Generate ASCII Art</button>
-                <button id="clear-btn" type="button">Clear</button>
-            </form>
+    <h1>Ascii Art Generator</h1>
+
+    <form action="/ascii-art" method="POST">
+        <div class="input-text">
+            <input type="text" id="text-input" name="text" placeholder="Enter your text here" required>
         </div>
-        <div id="asciiartcontainer"></div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-    </footer>
-    <script src="static/script.js"></script>
+        <div class="labels">
+        <label for="font-select" class="label-fonts">FONTS:</label>
+        <select id="font-select" name="font">
+            <option value="shadow">Shadow</option>
+            <option value="standard">Standard</option>
+            <option value="thinkertoy">Thinkertoy</option>
+        </select>
+        </div>
+
+        <div class="container">
+            <button type="submit" id="gen-ascii-art" name="buttons" value="generate">Generate Ascii Art</button>
+
+        </div>
+    </form>
+
+    <h2>Result:</h2>
+    <pre>{{.AsciiArt}}</pre>
 </body>
 
 </html>
