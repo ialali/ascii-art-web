@@ -1,104 +1,106 @@
- input {
-     margin-top: 20px;
-     margin-left: 37%;
-     width: 20;
-     height: 140px;
-     font-size: 45px;
-     font-family: Arial, Helvetica, sans-serif;
-     border-radius: 20px;
+.input-text {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 25px;
 
- }
+}
 
- h1 {
-     text-align: center;
-     border-radius: 15px;
-     background-color: rgb(20, 210, 42);
-     color: aliceblue;
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
- }
+#textarea {
+    display: flex;
+    justify-content: center;
+}
 
- #gen-ascii-art {
-     margin-top: 20px;
-     align-items: center;
- }
+h1 {
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgb(20, 210, 42);
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
- .radio-group {
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+#gen-ascii-art {
+    margin-top: 20px;
+    align-items: center;
+}
 
- .radio-group label {
-     display: inline-block;
-     vertical-align: middle;
-     line-height: 1.5;
- }
+.radio-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
- .container {
-     display: flex;
-     justify-content: center;
- }
+.radio-group label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+}
 
- button {
-     margin: 10px;
-     font-family: Arial, sans-serif;
-     font-size: 24px;
-     font-weight: bold;
-     padding: 10px 20px;
-     border: none;
-     background-color: #fff6f6;
-     color: hsl(0, 1%, 23%);
-     cursor: pointer;
-     border-radius: 8px;
-     margin-right: 10px;
+.container {
+    display: flex;
+    justify-content: center;
+}
 
- }
+button {
+    margin: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff6f6;
+    color: hsl(0, 1%, 23%);
+    cursor: pointer;
+    border-radius: 8px;
+    margin-right: 10px;
 
- body {
-     background-image: linear-gradient(45deg, rgb(16, 240, 27), rgb(11, 53, 239));
- }
+}
 
- pre {
-     background-color: #ddf1af;
-     border: 1px solid #ccc;
-     padding: 180px;
-     margin-bottom: 20px;
-     border-radius: 8px;
-     margin-top: 80px;
- }
+body {
+    background-image: linear-gradient(45deg, rgb(16, 240, 27), rgb(11, 53, 239));
+}
 
- .label-fonts {
-     text-align: center;
-     font-family: Arial, sans-serif;
-     font-size: 20px;
-     font-weight: bold;
-     color: rgb(245, 255, 249);
-     margin: 10px;
-     font-size: 24px;
-     padding: 10px 20px;
-     border: none;
-     background-color: #fefefe;
-     color: #000000;
-     border-radius: 8px;
-     margin-right: 10px;
+pre {
+    background-color: #ddf1af;
+    border: 1px solid #ccc;
+    padding: 180px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-top: 80px;
+}
 
- }
+.label-fonts {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(245, 255, 249);
+    margin: 10px;
+    font-size: 24px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fefefe;
+    color: #000000;
+    border-radius: 8px;
+    margin-right: 10px;
+
+}
 
 
- .labels {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     margin-top: 30px;
- }
+.labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 
- #font-select {
-     width: 130px;
-     height: 47px;
-     font-family: Arial, sans-serif;
-     font-size: 24px;
-     font-weight: bold;
-     border-radius: 8px;
-     color: hsl(0, 1%, 23%);
-     /* Adjust the width as desired */
- }
+#font-select {
+    width: 130px;
+    height: 47px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: hsl(0, 1%, 23%);
+    /* Adjust the width as desired */
+}

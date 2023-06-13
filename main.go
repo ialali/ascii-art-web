@@ -38,7 +38,9 @@ func handleAsciiArt(w http.ResponseWriter, r *http.Request) {
 
 	text := r.FormValue("text")
 	banner := r.FormValue("font")
-
+	if strings.Contains(text, "\r\n"){
+		text = strings.Replace(text, "\r\n", "\\n", -1)
+	}
 	result := generateAsciiArt(text, banner)
 
 	data := PageData{
@@ -82,6 +84,6 @@ func generateAsciiArt(text, banner string) string {
 			result.WriteString("\n")
 		}
 	}
-
+	fmt.Println(result.String())
 	return result.String()
 }
