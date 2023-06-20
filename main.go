@@ -16,44 +16,56 @@ type PageData struct {
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	fmt.Println("Server is live on http://localhost:5050 . To turn off the server use comand 'control + C'")
 	http.HandleFunc("/", handleMainPage)
 	http.HandleFunc("/ascii-art", handleAsciiArt)
-	fmt.Println("Server started. Listening on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	http.ListenAndServe("localhost:5050", nil)
 }
 
 func handleMainPage(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Error(w, "404 page not found ", http.StatusNotFound)
+		http.NotFound(w, r)
 		return
 	}
-	renderTemplate(w, "index.html", nil)
+
+	tpl, err := template.ParseFiles("index.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK) // Set 200 status explicitly
+	err = tpl.Execute(w, nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
 
 func handleAsciiArt(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	if r.Method != "POST" {
+		http.Error(w, "405 method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
 	text := r.FormValue("text")
 	banner := r.FormValue("font")
-	if strings.Contains(text, "\r\n"){
-		text = strings.Replace(text, "\r\n", "\\n", -1)
+	if strings.Contains(text, "\r\n") {
+		text = strings.ReplaceAll(text, "\r\n", "\\n")
 	}
+
 	result := generateAsciiArt(text, banner)
-
-	data := PageData{
-		AsciiArt: result,
+	pagedata := &PageData{AsciiArt: result}
+	tpl, err := template.ParseFiles("index.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
-	renderTemplate(w, "index.html", data)
-}
-
-func renderTemplate(w http.ResponseWriter, templateFile string, data interface{}) {
-	tmpl := template.Must(template.ParseFiles(templateFile))
-	if err := tmpl.Execute(w, data); err != nil {
+	err = tpl.Execute(w, pagedata)
+	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 }
 
@@ -63,16 +75,13 @@ func generateAsciiArt(text, banner string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	lines := strings.Split(strings.ReplaceAll(string(rawBytes), "\r\n", "\n"), "\n")
 	var result strings.Builder
-
 	for _, word := range words {
 		if word == "" {
 			result.WriteString("\n")
 			continue
 		}
-
 		for h := 1; h < 9; h++ {
 			for _, l := range word {
 				for lineIndex, line := range lines {
@@ -84,6 +93,6 @@ func generateAsciiArt(text, banner string) string {
 			result.WriteString("\n")
 		}
 	}
-	fmt.Println(result.String())
+
 	return result.String()
 }

@@ -1,44 +1,40 @@
-.input-text {
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-    font-size: 25px;
-
-}
-
-#textarea {
-    display: flex;
-    justify-content: center;
-}
-
 h1 {
     text-align: center;
-    border-radius: 15px;
-    background-color: rgb(20, 210, 42);
-    color: aliceblue;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#gen-ascii-art {
-    margin-top: 20px;
-    align-items: center;
+body {
+    background: url(/static/1000_F_525080936_JEpnKXh2siYKBPpsqd98pbbcIzy4ySKz.jpg);
+    background-size: 100%;
+
 }
 
-.radio-group {
+.textarea {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.radio-group label {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1.5;
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .container {
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+}
+
+pre {
+    background-color: #090c02;
+    border: 1px solid #ccc;
+    padding: 180px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-top: 80px;
+    color: antiquewhite;
+
 }
 
 button {
@@ -52,24 +48,21 @@ button {
     color: hsl(0, 1%, 23%);
     cursor: pointer;
     border-radius: 8px;
-    margin-right: 10px;
-
+    margin-left: 20px;
 }
 
-body {
-    background-image: linear-gradient(45deg, rgb(16, 240, 27), rgb(11, 53, 239));
-}
-
-pre {
-    background-color: #ddf1af;
-    border: 1px solid #ccc;
-    padding: 180px;
-    margin-bottom: 20px;
+#font-select {
+    width: 130px;
+    height: 47px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
     border-radius: 8px;
-    margin-top: 80px;
+    color: hsl(0, 1%, 23%);
+    margin-top: 10px;
 }
 
-.label-fonts {
+.font-button {
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -83,24 +76,10 @@ pre {
     color: #000000;
     border-radius: 8px;
     margin-right: 10px;
-
 }
 
-
-.labels {
+.output {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-}
-
-#font-select {
-    width: 130px;
-    height: 47px;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 8px;
-    color: hsl(0, 1%, 23%);
-    /* Adjust the width as desired */
 }
