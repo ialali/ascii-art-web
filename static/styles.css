@@ -1,10 +1,11 @@
 h1 {
     text-align: center;
+    color: beige;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body {
-    background: url(/static/Background.png);
+    background: url(/static/360_F_550349037_ukIvmE453JLLZtreKxg4LoH96WHemUpn.jpg);
     background-size: 100%;
 
 }
