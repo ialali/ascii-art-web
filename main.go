@@ -16,10 +16,10 @@ type PageData struct {
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
-	fmt.Println("Server is live on http://localhost:5050 . To turn off the server use comand 'control + C'")
+	fmt.Println("Server is live on http://localhost:3030 . To turn off the server use comand 'control + C'")
 	http.HandleFunc("/", handleMainPage)
 	http.HandleFunc("/ascii-art", handleAsciiArt)
-	http.ListenAndServe("localhost:5050", nil)
+	http.ListenAndServe("localhost:3030", nil)
 }
 
 func handleMainPage(w http.ResponseWriter, r *http.Request) {
