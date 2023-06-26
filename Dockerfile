@@ -8,4 +8,4 @@ RUN go build -o ascii-art-web main.go
 
 EXPOSE 5050
 
-CMD [ "/app/main" ]
+CMD [ "/app/ascii-art-web" ]
