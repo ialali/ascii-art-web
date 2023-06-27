@@ -29,7 +29,7 @@ body {
 
 pre {
     background-color: #090c02;
-    border: 1px solid #ccc;
+    border: 1px solid #e015bbef;
     padding: 180px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -83,4 +83,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.export {
+    display: flex;
+    justify-content: center;
+    
 }

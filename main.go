@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -23,12 +24,13 @@ func main() {
 	http.ListenAndServe("localhost:3030", nil)
 }
 
-func handleExport(w http.ResponseWriter, r*http.Request) {
+func handleExport(w http.ResponseWriter, r *http.Request) {
 	asciiArt := r.URL.Query().Get("text")
+	asciiArtLength := len(asciiArt)
 	w.Header().Set("Content-Type", "text/plain")
 	w.Header().Set("Content-Disposition", "attachment; filename=ascii_art.txt")
+	w.Header().Set("Content-Length", strconv.Itoa(asciiArtLength))
 	w.Write([]byte(asciiArt))
-
 
 }
 
