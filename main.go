@@ -19,7 +19,17 @@ func main() {
 	fmt.Println("Server is live on http://localhost:3030 . To turn off the server use comand 'control + C'")
 	http.HandleFunc("/", handleMainPage)
 	http.HandleFunc("/ascii-art", handleAsciiArt)
+	http.HandleFunc("/download", handleExport)
 	http.ListenAndServe("localhost:3030", nil)
+}
+
+func handleExport(w http.ResponseWriter, r*http.Request) {
+	asciiArt := r.URL.Query().Get("text")
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Content-Disposition", "attachment; filename=ascii_art.txt")
+	w.Write([]byte(asciiArt))
+
+
 }
 
 func handleMainPage(w http.ResponseWriter, r *http.Request) {
